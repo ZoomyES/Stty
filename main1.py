@@ -46,7 +46,7 @@ class CircleWindow(MainWindow):
         
         ellipse = QGraphicsEllipseItem(x, y, diameter, diameter)
         ellipse.setBrush(QBrush(color))
-        ellipse.setPen(Qt.PenStyle.NoPen)  # Важное изменение для PyQt6
+        ellipse.setPen(Qt.PenStyle.NoPen)
         
         self.scene.addItem(ellipse)
 
