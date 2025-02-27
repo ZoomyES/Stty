@@ -1,10 +1,10 @@
 import sys
 import random
-from PyQt5.QtWidgets import (QApplication, QMainWindow, 
+from PyQt6.QtWidgets import (QApplication, QMainWindow, 
                              QGraphicsScene, QGraphicsEllipseItem)
-from PyQt5 import uic
-from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtCore import Qt
+from PyQt6 import uic
+from PyQt6.QtGui import QBrush, QColor
+from PyQt6.QtCore import Qt
 
 
 class CircleWindow(QMainWindow):
