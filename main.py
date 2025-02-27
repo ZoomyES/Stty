@@ -28,7 +28,7 @@ class CircleWindow(QMainWindow):
         y = random.randint(0, view_height) if view_height > 0 else 0
         
         ellipse = QGraphicsEllipseItem(x, y, diameter, diameter)
-        ellipse.setBrush(QBrush(QColor(255, 255, 0)))  # Жёлтый цвет
+        ellipse.setBrush(QBrush(QColor(255, 255, 0))) 
         
         self.scene.addItem(ellipse)
 
