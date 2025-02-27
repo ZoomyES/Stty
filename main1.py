@@ -6,11 +6,9 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget,
 from PyQt6.QtGui import QBrush, QColor
 from PyQt6.QtCore import Qt
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        
         self.setWindowTitle("Случайные окружности")
         self.setGeometry(100, 100, 600, 500)
         
@@ -24,7 +22,6 @@ class MainWindow(QMainWindow):
         self.add_button = QPushButton("Добавить окружность")
         layout.addWidget(self.add_button)
 
-
 class CircleWindow(MainWindow):
     def __init__(self):
         super().__init__()
@@ -36,7 +33,6 @@ class CircleWindow(MainWindow):
         
     def add_circle(self):
         diameter = random.randint(10, 100)
-        
         color = QColor(
             random.randint(0, 255),
             random.randint(0, 255),
@@ -45,18 +41,17 @@ class CircleWindow(MainWindow):
         
         view_width = self.graphics_view.width() - diameter
         view_height = self.graphics_view.height() - diameter
-        x = random.randint(0, view_width) if view_width > 0 else 0
-        y = random.randint(0, view_height) if view_height > 0 else 0
+        x = random.randint(0, max(0, view_width))
+        y = random.randint(0, max(0, view_height))
         
         ellipse = QGraphicsEllipseItem(x, y, diameter, diameter)
         ellipse.setBrush(QBrush(color))
-        ellipse.setPen(Qt.NoPen)  # Убираем контур
+        ellipse.setPen(Qt.PenStyle.NoPen)  # Важное изменение для PyQt6
         
         self.scene.addItem(ellipse)
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = CircleWindow()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
