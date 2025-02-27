@@ -14,28 +14,22 @@ class CircleWindow(QMainWindow):
    
         uic.loadUi('UI.ui', self)
         
-     
         self.scene = QGraphicsScene()
         self.graphicsView.setScene(self.scene)
         
-
         self.pushButton.clicked.connect(self.add_circle)
         
     def add_circle(self):
-
         diameter = random.randint(10, 100)
         
-    
         view_width = self.graphicsView.width() - diameter
         view_height = self.graphicsView.height() - diameter
         x = random.randint(0, view_width) if view_width > 0 else 0
         y = random.randint(0, view_height) if view_height > 0 else 0
         
-
         ellipse = QGraphicsEllipseItem(x, y, diameter, diameter)
         ellipse.setBrush(QBrush(QColor(255, 255, 0)))  # Жёлтый цвет
         
-
         self.scene.addItem(ellipse)
 
 
